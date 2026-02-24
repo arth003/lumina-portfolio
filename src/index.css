@@ -145,6 +145,10 @@
     background-size: 60px 60px;
   }
 
+  .light .grid-bg {
+    background-image: none;
+  }
+
   .animate-glow-pulse {
     animation: glow-pulse 4s ease-in-out infinite;
   }
