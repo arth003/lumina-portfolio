@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
+import AboutSection from "@/components/sections/AboutSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import CertificationsSection from "@/components/sections/CertificationsSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 const roles = [
   "Full Stack Developer",
@@ -42,7 +47,7 @@ const HeroPage = () => {
 
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-5rem)] flex items-center justify-center px-6">
+      <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -67,20 +72,20 @@ const HeroPage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/projects"
+              <a
+                href="#projects"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:shadow-lg glow-primary"
               >
                 View Projects
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/contact"
+              </a>
+              <a
+                href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg glass text-foreground font-medium text-sm transition-all duration-200 hover:bg-muted/60"
               >
                 <Mail size={16} />
                 Contact Me
-              </Link>
+              </a>
               <a
                 href="#"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-muted-foreground font-medium text-sm transition-all duration-200 hover:text-foreground hover:border-primary/40"
@@ -92,6 +97,13 @@ const HeroPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <AboutSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <ExperienceSection />
+      <CertificationsSection />
+      <ContactSection />
     </Layout>
   );
 };
