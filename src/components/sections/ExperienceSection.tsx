@@ -1,11 +1,27 @@
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase } from "lucide-react";
+import { GraduationCap, Briefcase, MapPin, Calendar } from "lucide-react";
 
 const education = [
-  { degree: "MS in Computer Science", school: "University Name", duration: "2023 – 2025", details: ["Focus: Artificial Intelligence & Systems", "Relevant Coursework: Machine Learning, Distributed Systems, Advanced Algorithms, NLP", "GPA: 3.9/4.0"] },
-  { degree: "BS in Computer Science", school: "University Name", duration: "2019 – 2023", details: ["Focus: Software Engineering", "Relevant Coursework: Data Structures, Operating Systems, Databases, Computer Networks", "GPA: 3.8/4.0"] },
+  {
+    degree: "Master of Science in Computer Science",
+    school: "Stanford University",
+    location: "Stanford, CA",
+    duration: "2023 – 2025",
+    gpa: "3.9/4.0",
+    thesis: "Optimizing Neural Network Architectures for Edge Computing",
+    coursework: ["Advanced Machine Learning", "Distributed Systems", "Cloud Computing Architecture", "Computer Vision", "Natural Language Processing"],
+  },
+  {
+    degree: "Bachelor of Science in Computer Science",
+    school: "University Name",
+    location: "City, State",
+    duration: "2019 – 2023",
+    gpa: "3.8/4.0",
+    thesis: "",
+    coursework: ["Data Structures", "Operating Systems", "Databases", "Computer Networks", "Software Engineering"],
+  },
 ];
 
 const experience = [
@@ -19,15 +35,45 @@ const ExperienceSection = () => (
     <SectionHeading title="Education" subtitle="Academic background and qualifications." />
     <div className="space-y-6 mb-20">
       {education.map((item, i) => (
-        <motion.div key={item.degree} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.4 }} className="glass rounded-xl p-6 flex gap-5">
-          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-            <GraduationCap size={18} className="text-primary" />
+        <motion.div
+          key={item.degree}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1, duration: 0.4 }}
+          className="relative rounded-2xl bg-card border border-border/50 p-6 md:p-8 overflow-hidden group hover:border-primary/30 transition-all duration-300"
+        >
+          {/* Top glow border */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-60" />
+
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-1">{item.degree}</h3>
+              <p className="text-primary font-semibold text-sm">{item.school}</p>
+              <div className="flex items-center gap-4 mt-1 text-muted-foreground text-xs">
+                <span className="inline-flex items-center gap-1"><MapPin size={12} /> {item.location}</span>
+                <span className="inline-flex items-center gap-1"><Calendar size={12} /> {item.duration}</span>
+              </div>
+            </div>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+              GPA: {item.gpa}
+            </span>
           </div>
+
+          {item.thesis && (
+            <div className="mb-5 pl-4 border-l-2 border-primary/30">
+              <p className="text-xs font-semibold text-foreground mb-1">Thesis:</p>
+              <p className="text-muted-foreground text-sm">{item.thesis}</p>
+            </div>
+          )}
+
           <div>
-            <h3 className="font-semibold text-foreground">{item.degree}</h3>
-            <p className="text-primary text-sm">{item.school}</p>
-            <p className="text-muted-foreground text-xs mb-3">{item.duration}</p>
-            <ul className="space-y-1">{item.details.map((d) => <li key={d} className="text-muted-foreground text-sm">• {d}</li>)}</ul>
+            <p className="text-xs font-semibold text-foreground mb-2">Relevant Coursework:</p>
+            <div className="flex flex-wrap gap-2">
+              {item.coursework.map((c) => (
+                <span key={c} className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground border border-border/50">{c}</span>
+              ))}
+            </div>
           </div>
         </motion.div>
       ))}
