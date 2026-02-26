@@ -70,17 +70,16 @@ const HeroPage = () => {
             </motion.span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-              Hello, It's Me
+              Hii, I'm <span className="gradient-text">Arth Nangar</span>
             </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="gradient-text">Arth Nangar</span>
-            </h1>
-
-            <p className="text-muted-foreground text-lg mb-2">
-              MS in Computer Science
+            <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground font-medium mb-6">
+              Building Intelligent Systems<br />& Scalable Software
             </p>
 
             <div className="h-8 mb-8">
+              <span className="text-lg md:text-xl text-muted-foreground">
+                MS in Computer Science<span className="mx-2 text-primary">|</span>
+              </span>
               <span className="text-lg md:text-xl text-primary font-mono">
                 {displayText}
                 <span className="inline-block w-0.5 h-5 bg-primary ml-1 animate-pulse" />
