@@ -76,11 +76,11 @@ const HeroPage = () => {
               Building Intelligent Systems<br />& Scalable Software
             </p>
 
-            <div className="h-8 mb-8">
-              <span className="text-lg md:text-xl text-muted-foreground">
+            <div className="min-h-[2.5rem] mb-8 flex flex-wrap items-center justify-center gap-1">
+              <span className="text-base sm:text-lg md:text-xl text-muted-foreground whitespace-nowrap">
                 MS in Computer Science<span className="mx-2 text-primary">|</span>
               </span>
-              <span className="text-lg md:text-xl text-primary font-mono">
+              <span className="text-base sm:text-lg md:text-xl text-primary font-mono">
                 {displayText}
                 <span className="inline-block w-0.5 h-5 bg-primary ml-1 animate-pulse" />
               </span>
