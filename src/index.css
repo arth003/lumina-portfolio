@@ -139,13 +139,6 @@
   }
 
   .grid-bg {
-    background-image:
-      linear-gradient(hsl(222 30% 18% / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(222 30% 18% / 0.3) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .light .grid-bg {
     background-image: none;
   }
 
