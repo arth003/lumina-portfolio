@@ -6,28 +6,26 @@ import { MapPin, Calendar } from "lucide-react";
 const education = [
   {
     degree: "Master of Science in Computer Science",
-    school: "Stanford University",
-    location: "Stanford, CA",
-    duration: "2023 – 2025",
-    gpa: "3.9/4.0",
-    thesis: "Optimizing Neural Network Architectures for Edge Computing",
-    coursework: ["Advanced Machine Learning", "Distributed Systems", "Cloud Computing Architecture", "Computer Vision", "Natural Language Processing"],
+    school: "New Jersey Institute of Technology",
+    location: "Newark, NJ",
+    duration: "2025 – 2027",
+    gpa: "3.67/4.0",
+    thesis: "",
+    coursework: ["Data Mgt Systems Design","Opearting System", "Data Structures and Algorithms", "Artificial Intelligence", "Python for Web API"],
   },
   {
-    degree: "Bachelor of Science in Computer Science",
-    school: "University Name",
-    location: "City, State",
-    duration: "2019 – 2023",
-    gpa: "3.8/4.0",
+    degree: "Bachelor of Technology in Information Techonlogy",
+    school: "Dharmsinh Desai University",
+    location: "Nadiad, Gujarat",
+    duration: "2021 – 2025",
+    gpa: "7.5/10",
     thesis: "",
-    coursework: ["Data Structures", "Operating Systems", "Databases", "Computer Networks", "Software Engineering"],
+    coursework: ["Full Stack Development", "Design & Analysis of Algorithms", "Machine Learning & Deep Learning", "Advance Java Techbology", "Software Engineering"],
   },
 ];
 
 const experience = [
-  { role: "Software Engineer Intern", type: "Internship", company: "Tech Company", location: "San Francisco, CA", duration: "Summer 2024", achievements: ["Built microservices handling 10K+ requests/sec using Go and gRPC", "Reduced API latency by 40% through caching and query optimization", "Collaborated with cross-functional teams on feature delivery"], tech: ["Go", "gRPC", "PostgreSQL", "Docker"] },
-  { role: "Full Stack Developer", type: "Full-time", company: "Startup Inc.", location: "New York, NY", duration: "2022 – 2023", achievements: ["Developed and shipped 3 major product features end-to-end", "Implemented CI/CD pipelines reducing deployment time by 60%", "Mentored junior developers and led code reviews"], tech: ["React", "Node.js", "AWS", "MongoDB"] },
-  { role: "Research Assistant", type: "Part-time", company: "University AI Lab", location: "Stanford, CA", duration: "2023 – Present", achievements: ["Conducting research on transformer architectures for code generation", "Published findings at a peer-reviewed conference", "Built evaluation benchmarks for model performance"], tech: ["Python", "PyTorch", "HuggingFace"] },
+  { role: "Software Engineer Intern",company: "Guj Info Petro Limited", location: "Gandinagar, Gujrat", duration: "Dec,2024 - March,2025", achievements: [" Enhanced CMS admin module using .NET Core, serving 40+ schools to improve system reliability and workflow.", "Developed UI components for GIPL's website during its website redesign, ensuring a seamless user experience.","Optimized SQL queries and stored procedures, reducing a 30% of runtime and boosting database performance.", " Built interactive Power BI dashboards to track and analyze vendor management KPIs."], tech: [".Net Core", "Asp.Net", "C#", "SQL", "PowerBi"] },
 ];
 
 const glowCardClass =
@@ -104,9 +102,6 @@ const ExperienceSection = () => (
                 <div>
                   <div className="flex items-center gap-3 mb-1">
                     <h3 className="text-xl font-bold text-foreground">{item.role}</h3>
-                    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
-                      {item.type}
-                    </span>
                   </div>
                   <p className="text-primary font-semibold text-sm">{item.company}</p>
                   <div className="flex items-center gap-4 mt-1 text-muted-foreground text-xs">

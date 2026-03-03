@@ -4,25 +4,55 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Send, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast({ title: "Please fill all fields", variant: "destructive" });
-      return;
-    }
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+    toast({
+      title: "Please fill all fields",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  try {
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast({ title: "Message sent!", description: "Thank you for reaching out." });
-      setForm({ name: "", email: "", message: "" });
-    }, 1200);
-  };
+
+    await emailjs.send(
+      "Service ID",   // replace
+      "Template ID",  // replace
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },
+      "Public Key"    // replace
+    );
+
+    toast({
+      title: "Message sent successfully!",
+      description: "Arth will contact you shortly.",
+    });
+
+    setForm({ name: "", email: "", message: "" });
+
+  } catch (error) {
+    toast({
+      title: "Something went wrong",
+      description: "Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <Section id="contact">
@@ -36,45 +66,54 @@ const ContactSection = () => {
           </p>
 
           <div className="space-y-4 mb-8">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+            <a
+              href="mailto:arthnangar3@gmail.com"
+              className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/40 transition-all"
+            >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Mail size={18} className="text-primary" />
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Email</p>
-                <p className="text-sm font-medium text-foreground">contact@example.com</p>
+                <p className="text-sm font-medium text-foreground">
+                  arthnangar3@gmail.com
+                </p>
               </div>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+            </a>
+            <a
+              href="tel:+16094500671"
+              className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/40 transition-all"
+            >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Phone size={18} className="text-primary" />
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Phone</p>
-                <p className="text-sm font-medium text-foreground">+1 (123) 456-7890</p>
+                <p className="text-sm font-medium text-foreground">
+                  +1 (609)450-0671
+                </p>
               </div>
-            </div>
+            </a>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <MapPin size={18} className="text-primary" />
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Location</p>
-                <p className="text-sm font-medium text-foreground">San Francisco, CA</p>
+                <p className="text-sm font-medium text-foreground">
+                  Newark, NJ
+                </p>
               </div>
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground mb-3">Follow me on social media</p>
+          <p className="text-sm text-muted-foreground mb-3">Connect on social media</p>
           <div className="flex gap-3">
-            <a href="#" className="w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
+            <a href="https://github.com/ArthNangar" className="w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
               <Github size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
+            <a href="https://www.linkedin.com/in/arth-nangar-574589241/" className="w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
               <Linkedin size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
-              <Mail size={18} />
             </a>
           </div>
         </motion.div>
@@ -90,7 +129,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
-                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="your.email@example.com" maxLength={255} />
+                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your Email" maxLength={255} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">Message *</label>

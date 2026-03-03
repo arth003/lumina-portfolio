@@ -1,40 +1,72 @@
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
-import { GraduationCap, Target, Lightbulb, Rocket } from "lucide-react";
-
-const highlights = [
-  { icon: GraduationCap, title: "Academic Excellence", text: "Pursuing MS in Computer Science with focus on AI and distributed systems." },
-  { icon: Target, title: "Research Driven", text: "Passionate about AI/ML, systems design, and scalable architectures." },
-  { icon: Lightbulb, title: "Innovation Mindset", text: "Constantly exploring emerging technologies and building solutions." },
-  { icon: Rocket, title: "Career Goals", text: "Aiming to build products that make a meaningful impact at scale." },
-];
+import { CornerLeftUp } from "lucide-react";
+import profileImg from "@/assets/profile1.jpg";
 
 const AboutSection = () => (
   <Section id="about">
-    <SectionHeading title="About Me" subtitle="A passionate technologist building the future, one line of code at a time." />
-    <div className="grid md:grid-cols-2 gap-12 items-start">
+    <SectionHeading
+      title="About Me"
+      subtitle="Graduate CS Student @ NJIT, one line of code at a time."
+    />
+
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+  
       <div className="space-y-5 text-muted-foreground leading-relaxed">
-        <p>I'm a graduate student in Computer Science with a deep passion for building intelligent, scalable software systems.</p>
-        <p>My academic focus spans artificial intelligence, machine learning, and full-stack development. I enjoy bridging cutting-edge research with practical, production-ready applications.</p>
-        <p>When I'm not coding, you'll find me exploring new frameworks, contributing to open source, or reading about the latest breakthroughs in AI.</p>
+        <p>
+          Hello! I'm a passionate Software Developer and
+          a Graduate student in Computer Science.
+        </p>
+
+        <p>
+          My passion lies in building functional and scalable applications. 
+          Leveraging a solid foundation in languages like Python, .Net Core, SQL, 
+          and the MERN stack, I really enjoy the process of crafting both web applications and software that solve real-world problems.
+          For me, it’s about more than just writing code, it's about making sure everything I build is practical, reliable, and production ready.
+        </p>
+
+        <p>
+          When I'm not coding, you'll find me on field playing cricket or tennis, explooring new places,
+          reading about the latest breakthroughs in AI, or exploring new frameworks.
+        </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {highlights.map((item, i) => (
+
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative flex justify-end pr-6"   // shifted slightly right
+      >
+        <div className="relative w-full max-w-[270px]"> {/* smaller image size */}
+          
+          {/* Glow Background */}
+          <div className="absolute inset-0 gradient-bg opacity-20 blur-3xl rounded-full" />
+
+          {/* Profile Image */}
+          <img
+            src={profileImg}
+            alt="Profile"
+            className="relative rounded-2xl shadow-2xl w-full gradient-border"
+          />
+
+          {/* That's Me Tag */}
           <motion.div
-            key={item.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20, y: -20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.4 }}
-            className="glass rounded-xl p-5 hover:glow-primary transition-shadow duration-300"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="absolute -bottom-8 -right-1 flex items-center gap-1"
           >
-            <item.icon size={20} className="text-primary mb-3" />
-            <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
-            <p className="text-muted-foreground text-xs leading-relaxed">{item.text}</p>
+            <CornerLeftUp className="w-4 h-4 text-primary" /> {/* smaller icon */}
+            <span className="text-sm font-medium text-foreground bg-card/80 backdrop-blur-sm px-2 py-0.5 rounded-md border border-primary/20 shadow-md">
+              That's me
+            </span>
           </motion.div>
-        ))}
-      </div>
+        </div>
+      </motion.div>
+
     </div>
   </Section>
 );

@@ -11,9 +11,10 @@ import ContactSection from "@/components/sections/ContactSection";
 
 const roles = [
   "Full Stack Developer",
-  "AI Enthusiast",
+  "AI/ML Enthusiast",
   "Software Engineer",
   "Problem Solver",
+  "Data Analyst",
 ];
 
 const HeroPage = () => {
@@ -60,14 +61,6 @@ const HeroPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-5 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-8"
-            >
-              Welcome to my portfolio
-            </motion.span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
               Hii, I'm <span className="gradient-text">Arth Nangar</span>
@@ -101,23 +94,23 @@ const HeroPage = () => {
                 Contact Me
               </a>
               <a
-                href="#"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-muted-foreground font-medium text-sm transition-all duration-200 hover:text-foreground hover:border-primary/40"
+                href="https://drive.google.com/file/d/1lJ9ROjnidnXxaxFCB7nsO8uOXMM_zwC9/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg glass text-foreground font-medium text-sm transition-all duration-200 hover:bg-muted/60"
               >
-                <Download size={16} />
                 Resume
               </a>
             </div>
 
-            {/* Social Icons */}
             <div className="flex items-center justify-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
+              <a href="https://github.com/ArthNangar" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
                 <Github size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
+              <a href="https://www.linkedin.com/in/arth-nangar-574589241/" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
+              <a href="mailto:arthnangar3@gmail.com" className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-200">
                 <Mail size={18} />
               </a>
             </div>

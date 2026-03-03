@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Code2 } from "lucide-react";
 
 const projects = [
-  { title: "E-Commerce Platform", description: "Full-stack e-commerce solution with real-time inventory management, payment integration, and admin dashboard.", tags: ["React", "Node.js", "MongoDB", "Stripe", "Redis"], github: "#", demo: "#", featured: true },
+  { title: "Event Aquarium", description: "Full-stack e-commerce solution with real-time inventory management, payment integration, and admin dashboard.", tags: ["React", "Node.js", "MongoDB", "Stripe", "Redis"], github: "#", demo: "#", featured: true },
   { title: "AI Chat Assistant", description: "Intelligent chatbot powered by GPT-4 with context awareness, multi-turn conversations, and custom knowledge base.", tags: ["Next.js", "OpenAI", "Python", "FastAPI", "PostgreSQL"], github: "#", demo: "#", featured: true },
   { title: "Real-Time Analytics Dashboard", description: "Interactive dashboard for monitoring application metrics with live data visualization and alerting system.", tags: ["React", "D3.js", "WebSocket", "Express", "InfluxDB"], github: "#", demo: "#", featured: true },
   { title: "Social Media Aggregator", description: "Platform that aggregates posts from multiple social media platforms with sentiment analysis and trending topics.", tags: ["Vue.js", "Python", "Django", "Celery", "MongoDB"], github: "#" },
@@ -14,7 +14,7 @@ const projects = [
 
 const ProjectsSection = () => (
   <Section id="projects">
-    <SectionHeading title="Projects" subtitle="A selection of things I've built." />
+    <SectionHeading title="Projects" subtitle="A selection of things I've built, using diverse technologies." />
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       {projects.map((project, i) => (
         <motion.div

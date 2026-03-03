@@ -29,7 +29,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "DevOps & Cloud",
     icon: Globe,
-    skills: ["Docker", "AWS", "CI/CD", "Kubernetes"],
+    skills: ["Docker", "AWS", "CI/CD"],
   },
   {
     title: "AI/ML",
@@ -39,7 +39,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Git", "VS Code", "Figma", "Linux"],
+    skills: ["Git", "VS Code", "Vercel", "Postman"],
   },
 ];
 
