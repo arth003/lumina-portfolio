@@ -19,9 +19,18 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="text-2xl gradient-text font-bold ml-8">
-          AN
-        </a>
+        <div className="flex items-center gap-3 ml-8">
+          <a href="#home" className="text-2xl gradient-text font-bold">
+            AN
+          </a>
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-md border border-border/50 bg-muted/30 backdrop-blur-sm">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">Available for new opportunities</span>
+          </div>
+        </div>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
