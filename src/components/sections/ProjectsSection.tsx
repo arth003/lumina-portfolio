@@ -8,8 +8,6 @@ const projects = [
   { title: "AI Chat Assistant", description: "Intelligent chatbot powered by GPT-4 with context awareness, multi-turn conversations, and custom knowledge base.", tags: ["Next.js", "OpenAI", "Python", "FastAPI", "PostgreSQL"], github: "#", demo: "#", featured: true },
   { title: "Real-Time Analytics Dashboard", description: "Interactive dashboard for monitoring application metrics with live data visualization and alerting system.", tags: ["React", "D3.js", "WebSocket", "Express", "InfluxDB"], github: "#", demo: "#", featured: true },
   { title: "Social Media Aggregator", description: "Platform that aggregates posts from multiple social media platforms with sentiment analysis and trending topics.", tags: ["Vue.js", "Python", "Django", "Celery", "MongoDB"], github: "#" },
-  { title: "Cloud Storage Service", description: "Distributed file storage system with encryption, version control, and collaborative features.", tags: ["React", "Go", "AWS S3", "Docker", "Kubernetes"], github: "#", demo: "#" },
-  { title: "Task Management App", description: "Collaborative project management tool with kanban boards, time tracking, and team analytics.", tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "TailwindCSS"], github: "#", demo: "#" },
 ];
 
 const ProjectsSection = () => (
