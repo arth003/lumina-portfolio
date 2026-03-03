@@ -62,14 +62,18 @@ const HeroPage = () => {
             transition={{ duration: 0.6 }}
           >
 
-            <p className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground italic mb-2">
+            <h4 className="text-3xl font-bold 
+               text-slate-600
+               dark:text-white
+               mb-2">
               Hello, It's Me
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-              <span className="gradient-text">Arth Nangar.</span>
-            </h1>
+            </h4>
+
+            <h3 className="text-4xl md:text-6xl font-bold mb-6 font-space text-primary leading-none">
+              Arth Nangar.
+            </h3>
             <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground font-medium mb-6">
-              Building Intelligent Systems<br />& Scalable Software
+              Building Intelligent Systems & Scalable Software
             </p>
 
             <div className="min-h-[2.5rem] mb-8 flex flex-wrap items-center justify-center gap-1">
