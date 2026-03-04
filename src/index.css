@@ -7,82 +7,82 @@
 @layer base {
   :root {
     --background: 0 0% 0%;
-    --foreground: 120 10% 90%;
+    --foreground: 210 30% 92%;
 
-    --card: 120 10% 6%;
-    --card-foreground: 120 10% 90%;
+    --card: 222 40% 10%;
+    --card-foreground: 210 30% 92%;
 
-    --popover: 120 10% 6%;
-    --popover-foreground: 120 10% 90%;
+    --popover: 222 40% 10%;
+    --popover-foreground: 210 30% 92%;
 
-    --primary: 142 72% 46%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 160 60% 40%;
-    --secondary-foreground: 120 10% 90%;
+    --secondary: 265 89% 58%;
+    --secondary-foreground: 210 30% 92%;
 
-    --muted: 120 8% 12%;
-    --muted-foreground: 120 8% 50%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 160 60% 40%;
-    --accent-foreground: 120 10% 90%;
+    --accent: 265 89% 58%;
+    --accent-foreground: 210 30% 92%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 120 10% 90%;
+    --destructive-foreground: 210 30% 92%;
 
-    --border: 120 8% 16%;
-    --input: 120 8% 16%;
-    --ring: 142 72% 46%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 199 89% 48%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 120 10% 4%;
-    --sidebar-foreground: 120 10% 90%;
-    --sidebar-primary: 142 72% 46%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 120 8% 12%;
-    --sidebar-accent-foreground: 120 10% 90%;
-    --sidebar-border: 120 8% 16%;
-    --sidebar-ring: 142 72% 46%;
+    --sidebar-background: 222 40% 8%;
+    --sidebar-foreground: 210 30% 92%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 14%;
+    --sidebar-accent-foreground: 210 30% 92%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 199 89% 48%;
   }
 
   .light {
-    --background: 120 20% 97%;
-    --foreground: 120 20% 10%;
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 120 20% 10%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 120 20% 10%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 142 72% 36%;
+    --primary: 199 89% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 50% 38%;
+    --secondary: 265 70% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 120 15% 92%;
-    --muted-foreground: 120 8% 42%;
+    --muted: 210 20% 93%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 160 50% 38%;
+    --accent: 265 70% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 120 15% 82%;
-    --input: 120 15% 82%;
-    --ring: 142 72% 36%;
+    --border: 214 20% 85%;
+    --input: 214 20% 85%;
+    --ring: 199 89% 42%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 120 20% 10%;
-    --sidebar-primary: 142 72% 36%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 199 89% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 120 15% 92%;
-    --sidebar-accent-foreground: 120 20% 10%;
-    --sidebar-border: 120 15% 82%;
-    --sidebar-ring: 142 72% 36%;
+    --sidebar-accent: 210 20% 93%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 20% 85%;
+    --sidebar-ring: 199 89% 42%;
   }
 }
 
@@ -110,11 +110,11 @@
   }
 
   .glow-primary {
-    box-shadow: 0 0 20px hsl(142 72% 46% / 0.15), 0 0 60px hsl(142 72% 46% / 0.05);
+    box-shadow: 0 0 20px hsl(199 89% 48% / 0.15), 0 0 60px hsl(199 89% 48% / 0.05);
   }
 
   .glow-accent {
-    box-shadow: 0 0 20px hsl(160 60% 40% / 0.15), 0 0 60px hsl(160 60% 40% / 0.05);
+    box-shadow: 0 0 20px hsl(265 89% 58% / 0.15), 0 0 60px hsl(265 89% 58% / 0.05);
   }
 
   .gradient-text {
@@ -131,7 +131,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(142 72% 46% / 0.5), hsl(160 60% 40% / 0.5));
+    background: linear-gradient(135deg, hsl(199 89% 48% / 0.5), hsl(265 89% 58% / 0.5));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
