@@ -61,8 +61,8 @@ const ContactSection = () => {
         {/* Left: Info */}
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="flex flex-col justify-start">
           <h3 className="text-xl font-bold text-foreground mb-3">Let's Connect</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hi, feel free to reach out!
+          <p className="text-muted-foreground text-base leading-relaxed mb-6">
+            I'm always open to discussing new projects, creative ideas, or interesting conversations. Whether you have a question or just want to say hi, I’m just a few keystrokes away.
           </p>
 
           <div className="space-y-4 mb-8">
@@ -125,11 +125,11 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">Name *</label>
-                <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your name" maxLength={100} />
+                <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" maxLength={100} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
-                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow" placeholder="Your Email" maxLength={255} />
+                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"  maxLength={255} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">Message *</label>

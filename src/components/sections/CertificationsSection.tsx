@@ -102,7 +102,7 @@ const CertificationsSection = () => (
               href={cert.link}
               className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
             >
-              <ExternalLink size={12} /> Verify Certification
+              <ExternalLink size={12} /> View Certificate
             </a>
           )}
         </motion.div>

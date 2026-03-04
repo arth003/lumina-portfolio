@@ -11,12 +11,11 @@ const AboutSection = () => (
       subtitle="Graduate CS Student @ NJIT, one line of code at a time."
     />
 
-    <div className="grid md:grid-cols-2 gap-12 items-center">
+    <div className="grid md:grid-cols-2 gap-8 items-center">
   
-      <div className="space-y-5 text-muted-foreground leading-relaxed">
-        <p>
-          Hello! I'm a passionate Software Developer and
-          a Graduate student in Computer Science.
+      <div className="text-base space-y-5 text-muted-foreground leading-relaxed">
+        <p className="text-base font-space">
+          Hello! I'm a passionate <span className="gradient-text font-bold">Software Developer and a Graduate student in Computer Science.</span>
         </p>
 
         <p>
