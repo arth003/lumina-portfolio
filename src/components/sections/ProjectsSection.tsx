@@ -23,7 +23,6 @@ const ProjectsSection = () => (
           transition={{ delay: i * 0.08, duration: 0.4 }}
           className="relative rounded-2xl bg-card border border-border/50 p-6 group hover:border-primary/30 transition-all duration-300 overflow-hidden"
         >
-          {/* Top glow border on hover */}
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           <div className="flex items-start justify-between mb-2">

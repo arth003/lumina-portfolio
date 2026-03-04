@@ -62,7 +62,6 @@ const CertificationsSection = () => (
           transition={{ delay: i * 0.08, duration: 0.3 }}
           className="relative rounded-2xl bg-card border border-border/50 p-6 group hover:border-primary/30 transition-all duration-300 overflow-hidden"
         >
-          {/* Top glow border */}
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           <div className="flex items-center justify-between mb-4">
@@ -92,7 +91,6 @@ const CertificationsSection = () => (
             </div>
           </div>
 
-          {/* Description */}
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
             {cert.desc}
           </p>

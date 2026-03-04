@@ -44,7 +44,6 @@ const ExperienceSection = () => (
           transition={{ delay: i * 0.1, duration: 0.4 }}
           className={glowCardClass}
         >
-          {/* Top glow border */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-60 group-hover:opacity-100 transition-opacity" />
 
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
@@ -95,7 +94,6 @@ const ExperienceSection = () => (
           >
             <div className="absolute left-3 top-6 w-4 h-4 rounded-full bg-primary/20 border-2 border-primary hidden md:block" />
             <div className={glowCardClass}>
-              {/* Top glow border */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-60 transition-opacity" />
 
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
