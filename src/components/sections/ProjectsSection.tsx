@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Code2 } from "lucide-react";
 
 const projects = [
-  { title: "Event Aquarium", description: "Full-stack e-commerce solution with real-time inventory management, payment integration, and admin dashboard.", features: ["Real-time inventory tracking with WebSocket updates", "Stripe payment integration with subscription support", "Admin dashboard with analytics and order management", "Role-based access control for staff and admins"], tags: ["React", "Node.js", "MongoDB", "Stripe", "Redis"], github: "#", demo: "#", featured: true },
-  { title: "AI Chat Assistant", description: "Intelligent chatbot powered by GPT-4 with context awareness, multi-turn conversations, and custom knowledge base.", features: ["Context-aware multi-turn conversation handling", "Custom knowledge base ingestion and retrieval", "Streaming responses with real-time token generation", "Conversation history and analytics dashboard"], tags: ["Next.js", "OpenAI", "Python", "FastAPI", "PostgreSQL"], github: "#", demo: "#", featured: true },
-  { title: "Real-Time Analytics Dashboard", description: "Interactive dashboard for monitoring application metrics with live data visualization and alerting system.", features: ["Live data visualization with D3.js charts", "Configurable alerting system with email notifications", "Custom metric tracking and aggregation", "Exportable reports in PDF and CSV formats"], tags: ["React", "D3.js", "WebSocket", "Express", "InfluxDB"], github: "#", demo: "#", featured: true },
-  { title: "Social Media Aggregator", description: "Platform that aggregates posts from multiple social media platforms with sentiment analysis and trending topics.", features: ["Multi-platform post aggregation (Twitter, Reddit, etc.)", "NLP-based sentiment analysis on aggregated content", "Trending topic detection and visualization", "Scheduled data collection with Celery workers"], tags: ["Vue.js", "Python", "Django", "Celery", "MongoDB"], github: "#" },
+  { title: "Event Aquarium", description: "Full-stack event hosting platform for college clubs and organizations featuring secure authentication and integrated payments.", features: ["Implemented Google OAuth and secure sign-in using Clerk for a seamless user experience.", "Processed secure ticket transactions by integrating the Stripe Payment gateway for ticket purchases.", "Admin dashboard with analytics and order management", "Role-based access control for user and admins"], tags: ["Next.js", "TypeScript", "TailwindCSS", "MongoDB", "ClearkAPI"], github: "https://github.com/ArthNangar/event_aquarium", demo: "https://event-aquarium.vercel.app/", featured: true },
+  { title: "Motion Canvas", description: "A real-time computer vision application that enables gesture-based drawing and interaction through a webcam.", features: ["Integrated OpenCV and MediaPipe to track hand landmarks and translate physical movements into on-screen actions.", "Developed specific gesture-recognition logic to handle different functions like drawing, color switching, and erasing.", "Optimized frame processing with NumPy to ensure smooth, low-latency real-time performance."], tags: ["Python", "OpenCV", "MediaPipe", "NumPy"], github: "https://github.com/ArthNangar/motion_canvas", demo: "https://drive.google.com/file/d/12UiJu6vCIlgDTqx8l0ccrJx0KF3AT0NP/view?usp=sharing", featured: true },
+  // { title: "Real-Time Analytics Dashboard", description: "Interactive dashboard for monitoring application metrics with live data visualization and alerting system.", features: ["Live data visualization with D3.js charts", "Configurable alerting system with email notifications", "Custom metric tracking and aggregation", "Exportable reports in PDF and CSV formats"], tags: ["React", "D3.js", "WebSocket", "Express", "InfluxDB"], github: "#", demo: "#", featured: true },
+  { title: "Advanced Full Stack Calculator", description: "Built full-stack application featuring complex expression evaluation, normal calculations, and user history management.", features: ["Built a robust backend to handle complete CRUD operations, allowing users to store, retrieve, and manage their calculation history.", "Implemented multi-level expression evaluation to support complex arithmetic operations and nested calculations.", "Developed REST APIs using FastAPI and managed data persistence with PostgreSQL and SQLAlchemy.", "Containerized the application using Docker and automated the testing and deployment pipeline with GitHub Actions."], tags: ["Python", "FastAPI", "PostgresSQL", "SQLAlchemy", "Docker", "Github Actions"], github: "https://github.com/ArthNangar/finalproject", demo: "https://drive.google.com/file/d/1PJ1DEGjY1_i-B_1rMu9V_8Hm_XkRxi8G/view?usp=drive_link", docker:"https://hub.docker.com/repository/docker/arthnangar7/finalproject/general" },
 ];
 
 const ProjectsSection = () => (
@@ -29,11 +29,6 @@ const ProjectsSection = () => (
           <div className="flex items-start justify-between mb-2">
             <div className="flex items-center gap-3">
               <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
-              {project.featured && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-primary/10 text-primary border border-primary/20">
-                  Featured
-                </span>
-              )}
             </div>
             <Code2 size={18} className="text-muted-foreground flex-shrink-0 ml-2" />
           </div>
@@ -66,6 +61,11 @@ const ProjectsSection = () => (
             {project.demo && (
               <a href={project.demo} className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline">
                 <ExternalLink size={14} /> Live Demo
+              </a>
+            )}
+            {project.docker && (
+              <a href={project.docker} className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline">
+                <ExternalLink size={14} /> Docker Image 
               </a>
             )}
           </div>

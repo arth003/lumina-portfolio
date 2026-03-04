@@ -14,32 +14,32 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
     icon: Code,
-    skills: ["TypeScript", "Python", "Java", "C++", "Go"],
+    skills: ["C/C++", "Python", "Java", "TypeScript", "C#"],
   },
   {
     title: "Frameworks",
     icon: Monitor,
-    skills: ["React", "Next.js", "Node.js", "Express", "FastAPI"],
+    skills: ["React", "Next.js", "Node.js", ".Net Core", "FastAPI"],
   },
   {
     title: "Databases",
     icon: Database,
-    skills: ["PostgreSQL", "MongoDB", "Redis", "Firebase"],
+    skills: ["MongoDB", "Microsoft SQL Server", "PostgreSQL"],
   },
   {
     title: "DevOps & Cloud",
     icon: Globe,
-    skills: ["Docker", "AWS", "CI/CD"],
+    skills: ["Docker", "AWS", "CI/CD", "Git", "Vercel"],
   },
   {
     title: "AI/ML",
     icon: Brain,
-    skills: ["TensorFlow", "PyTorch", "Scikit-learn", "NLP"],
+    skills: ["MediaPipe","TensorFlow", "PyTorch", "Scikit-learn", "NLP"],
   },
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Git", "VS Code", "Vercel", "Postman"],
+    skills: ["Github", "VS Code", "IntelliJ", "Postman"],
   },
 ];
 
