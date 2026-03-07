@@ -1,111 +1,201 @@
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
+import { Code, Database, Globe, Monitor, Brain, Wrench } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { useState } from "react";
 
 interface Skill {
   name: string;
-  icon: string;
-  category: string;
+  icon: string; // devicon CDN slug
 }
 
-const allSkills: Skill[] = [
-  // Languages
-  { name: "C/C++", icon: "cplusplus", category: "Languages" },
-  { name: "Python", icon: "python", category: "Languages" },
-  { name: "Java", icon: "java", category: "Languages" },
-  { name: "TypeScript", icon: "typescript", category: "Languages" },
-  { name: "C#", icon: "csharp", category: "Languages" },
-  // Frameworks
-  { name: "React", icon: "react", category: "Frameworks" },
-  { name: "Next.js", icon: "nextjs", category: "Frameworks" },
-  { name: "Node.js", icon: "nodejs", category: "Frameworks" },
-  { name: ".Net Core", icon: "dotnetcore", category: "Frameworks" },
-  { name: "FastAPI", icon: "fastapi", category: "Frameworks" },
-  // Databases
-  { name: "MongoDB", icon: "mongodb", category: "Databases" },
-  { name: "SQL Server", icon: "microsoftsqlserver", category: "Databases" },
-  { name: "PostgreSQL", icon: "postgresql", category: "Databases" },
-  // DevOps & Cloud
-  { name: "Docker", icon: "docker", category: "DevOps" },
-  { name: "AWS", icon: "amazonwebservices", category: "DevOps" },
-  { name: "Git", icon: "git", category: "DevOps" },
-  { name: "Vercel", icon: "vercel", category: "DevOps" },
-  // AI/ML
-  { name: "TensorFlow", icon: "tensorflow", category: "AI/ML" },
-  { name: "PyTorch", icon: "pytorch", category: "AI/ML" },
-  { name: "Scikit-learn", icon: "scikitlearn", category: "AI/ML" },
-  { name: "MediaPipe", icon: "google", category: "AI/ML" },
-  // Tools
-  { name: "GitHub", icon: "github", category: "Tools" },
-  { name: "VS Code", icon: "vscode", category: "Tools" },
-  { name: "IntelliJ", icon: "intellij", category: "Tools" },
-  { name: "Postman", icon: "postman", category: "Tools" },
+interface SkillCategory {
+  title: string;
+  icon: LucideIcon;
+  skills: Skill[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Languages",
+    icon: Code,
+    skills: [
+      { name: "C/C++", icon: "cplusplus" },
+      { name: "Python", icon: "python" },
+      { name: "Java", icon: "java" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "C#", icon: "csharp" },
+    ],
+  },
+  {
+    title: "Frameworks",
+    icon: Monitor,
+    skills: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: ".Net Core", icon: "dotnetcore" },
+      { name: "FastAPI", icon: "fastapi" },
+    ],
+  },
+  {
+    title: "Databases",
+    icon: Database,
+    skills: [
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "SQL Server", icon: "microsoftsqlserver" },
+      { name: "PostgreSQL", icon: "postgresql" },
+    ],
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: Globe,
+    skills: [
+      { name: "Docker", icon: "docker" },
+      { name: "AWS", icon: "amazonwebservices" },
+      { name: "Git", icon: "git" },
+      { name: "Vercel", icon: "vercel" },
+    ],
+  },
+  {
+    title: "AI/ML",
+    icon: Brain,
+    skills: [
+      { name: "TensorFlow", icon: "tensorflow" },
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "Scikit-learn", icon: "scikitlearn" },
+      { name: "MediaPipe", icon: "google" },
+    ],
+  },
+  {
+    title: "Tools",
+    icon: Wrench,
+    skills: [
+      { name: "GitHub", icon: "github" },
+      { name: "VS Code", icon: "vscode" },
+      { name: "IntelliJ", icon: "intellij" },
+      { name: "Postman", icon: "postman" },
+    ],
+  },
 ];
 
-const categories = ["All", "Languages", "Frameworks", "Databases", "DevOps", "AI/ML", "Tools"];
-
-const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filtered = activeCategory === "All" ? allSkills : allSkills.filter((s) => s.category === activeCategory);
+const OrbitCard = ({
+  category,
+  index,
+}: {
+  category: SkillCategory;
+  index: number;
+}) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const count = category.skills.length;
+  const radius = count <= 3 ? 90 : 105;
 
   return (
-    <Section id="skills">
-      <SectionHeading title="Technical Skills" subtitle="Technologies and tools I've used to build real-world applications." />
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
+      className="glass rounded-2xl gradient-border p-6 flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] relative group hover:glow-primary transition-shadow duration-500"
+    >
+      {/* Center icon */}
+      <div className="relative w-[220px] h-[220px] sm:w-[250px] sm:h-[250px] flex items-center justify-center">
+        {/* Orbit ring */}
+        <div
+          className="absolute rounded-full border border-border/30 group-hover:border-primary/20 transition-colors duration-500"
+          style={{ width: radius * 2 + 40, height: radius * 2 + 40 }}
+        />
 
-      {/* Category filter */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border ${
-              activeCategory === cat
-                ? "bg-primary/20 border-primary/50 text-primary shadow-[0_0_12px_hsl(var(--primary)/0.2)]"
-                : "border-border/50 text-muted-foreground hover:text-foreground hover:border-border"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+        {/* Center category icon */}
+        <motion.div
+          className="z-10 w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"
+          whileHover={{ scale: 1.1 }}
+        >
+          <category.icon size={28} className="text-primary" />
+        </motion.div>
+
+        {/* Orbiting skill icons */}
+        {category.skills.map((skill, i) => {
+          const angle = (360 / count) * i - 90;
+          const rad = (angle * Math.PI) / 180;
+          const x = Math.cos(rad) * radius;
+          const y = Math.sin(rad) * radius;
+          const isHovered = hovered === i;
+
+          return (
+            <motion.div
+              key={skill.name}
+              className="absolute flex flex-col items-center"
+              style={{ left: `calc(50% + ${x}px - 22px)`, top: `calc(50% + ${y}px - 22px)` }}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 + i * 0.08 + 0.3, type: "spring", stiffness: 200 }}
+              onHoverStart={() => setHovered(i)}
+              onHoverEnd={() => setHovered(null)}
+              animate={{
+                y: isHovered ? -4 : [0, -3, 0],
+                scale: isHovered ? 1.2 : 1,
+              }}
+              {...(!isHovered && {
+                transition: {
+                  y: { duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
+                  delay: index * 0.1 + i * 0.08 + 0.3,
+                },
+              })}
+            >
+              <div
+                className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  isHovered
+                    ? "bg-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                    : "bg-muted/50 hover:bg-muted"
+                }`}
+              >
+                <img
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
+                  alt={skill.name}
+                  className="w-6 h-6"
+                  onError={(e) => {
+                    // Fallback to plain version
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = "1";
+                      target.src = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-plain.svg`;
+                    }
+                  }}
+                />
+              </div>
+              <motion.span
+                className="text-[10px] sm:text-xs text-muted-foreground mt-1.5 whitespace-nowrap font-medium"
+                animate={{ opacity: isHovered ? 1 : 0.7 }}
+              >
+                {skill.name}
+              </motion.span>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Floating icon grid */}
-      <motion.div layout className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-5">
-        {filtered.map((skill, i) => (
-          <motion.div
-            key={skill.name}
-            layout
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.7 }}
-            transition={{ delay: i * 0.03, type: "spring", stiffness: 300, damping: 25 }}
-            whileHover={{ y: -8, scale: 1.08 }}
-            className="group flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-xl glass gradient-border cursor-default transition-shadow duration-300 hover:glow-primary"
-          >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg bg-muted/40 group-hover:bg-primary/10 transition-colors duration-300">
-              <img
-                src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
-                alt={skill.name}
-                className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (!target.dataset.fallback) {
-                    target.dataset.fallback = "1";
-                    target.src = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-plain.svg`;
-                  }
-                }}
-              />
-            </div>
-            <span className="text-[11px] sm:text-xs text-muted-foreground group-hover:text-foreground font-medium text-center transition-colors duration-300 leading-tight">
-              {skill.name}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
-    </Section>
+      {/* Category title */}
+      <h3 className="font-bold text-foreground text-sm sm:text-base mt-4">{category.title}</h3>
+    </motion.div>
   );
 };
+
+const SkillsSection = () => (
+  <Section id="skills">
+    <SectionHeading
+      title="Technical Skills"
+      subtitle="Technologies and tools I've used to build real-world applications."
+    />
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skillCategories.map((category, i) => (
+        <OrbitCard key={category.title} category={category} index={i} />
+      ))}
+    </div>
+  </Section>
+);
 
 export default SkillsSection;
