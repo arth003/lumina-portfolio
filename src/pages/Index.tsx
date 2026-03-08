@@ -132,6 +132,7 @@ const HeroPage = () => {
       <ExperienceSection />
       <CertificationsSection />
       <ContactSection />
+      <Chatbot />
     </Layout>
   );
 };
