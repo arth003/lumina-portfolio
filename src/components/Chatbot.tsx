@@ -181,14 +181,14 @@ const Chatbot = () => {
           >
             {/* Avatar with green dot */}
             <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-lg border border-primary/30 overflow-hidden">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-lg border border-primary/30 overflow-hidden">
                 <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
               </div>
               {/* Green online indicator dot */}
-              <div className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-card shadow-lg"></div>
+              <div className="absolute bottom-1 right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-card shadow-lg"></div>
             </div>
             {/* Label */}
-            <p className="text-xs font-semibold text-foreground text-center whitespace-nowrap">
+            <p className="text-[10px] font-semibold text-foreground text-center whitespace-nowrap">
               Arth's AI<br />Assistant
             </p>
           </motion.button>
