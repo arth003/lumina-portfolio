@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import CertificationsSection from "@/components/sections/CertificationsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import Chatbot from "@/components/Chatbot";
 
 const roles = [
   "Full Stack Developer",
@@ -131,6 +132,7 @@ const HeroPage = () => {
       <ExperienceSection />
       <CertificationsSection />
       <ContactSection />
+      <Chatbot />
     </Layout>
   );
 };
