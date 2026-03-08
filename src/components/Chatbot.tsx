@@ -212,12 +212,13 @@ const Chatbot = () => {
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-gradient-to-r from-primary/10 to-accent/10">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Sparkles size={18} className="text-primary" />
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-primary/30 flex-shrink-0">
+                  <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border border-card"></div>
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground">
-                    Hi, I'm Arth's AI 👋
+                    Arth's AI Assistant 🤖
                   </h3>
                   <p className="text-[10px] text-muted-foreground">
                     Ask me anything about Arth
