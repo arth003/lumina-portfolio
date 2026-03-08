@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, User, Sparkles } from "lucide-react";
+import { X, Send, Bot, User, Sparkles } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import aiAvatar from "@/assets/ai-assistant-avatar.png";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -166,19 +167,30 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button with Avatar */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center glow-primary transition-shadow hover:shadow-xl"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 cursor-pointer"
           >
-            <MessageCircle size={24} />
+            {/* Avatar with green dot */}
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-lg border border-primary/30 overflow-hidden">
+                <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
+              </div>
+              {/* Green online indicator dot */}
+              <div className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-card shadow-lg"></div>
+            </div>
+            {/* Label */}
+            <p className="text-xs font-semibold text-foreground text-center whitespace-nowrap">
+              Arth's AI<br />Assistant
+            </p>
           </motion.button>
         )}
       </AnimatePresence>
@@ -200,12 +212,13 @@ const Chatbot = () => {
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-gradient-to-r from-primary/10 to-accent/10">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Sparkles size={18} className="text-primary" />
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-primary/30 flex-shrink-0">
+                  <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border border-card"></div>
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground">
-                    Hi, I'm Arth's AI 👋
+                    Arth's AI Assistant 🤖
                   </h3>
                   <p className="text-[10px] text-muted-foreground">
                     Ask me anything about Arth
