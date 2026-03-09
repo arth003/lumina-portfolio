@@ -8,12 +8,11 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
-const suggestedQuestions = [
-  "What are Arth's skills?",
-  "Tell me about his projects",
-  "What's his experience?",
-  "How can I contact Arth?",
-];
+const INITIAL_MESSAGE: Message = {
+  role: "assistant",
+  content:
+    "Hey! 👋 I'm here to tell you about Arth Nangar. You can ask me about his projects, skills, and background. What would you like to know?",
+};
 
 async function streamChat({
   messages,
@@ -108,7 +107,8 @@ async function streamChat({
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  // ✅ Start with the initial greeting message already in the chat
+  const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -146,8 +146,11 @@ const Chatbot = () => {
       });
     };
 
+    // ✅ Skip the initial greeting when sending to the API
+    const apiMessages = messages.filter((m) => m !== INITIAL_MESSAGE);
+
     await streamChat({
-      messages: [...messages, userMsg],
+      messages: [...apiMessages, userMsg],
       onDelta: (chunk) => upsertAssistant(chunk),
       onDone: () => setIsLoading(false),
       onError: (msg) => {
@@ -235,33 +238,6 @@ const Chatbot = () => {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin">
-              {messages.length === 0 && (
-                <div className="flex flex-col items-center justify-center h-full text-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Bot size={28} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-1">
-                      Hey there! 👋
-                    </p>
-                    <p className="text-xs text-muted-foreground mb-4">
-                      I know everything about Arth. Ask me anything!
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {suggestedQuestions.map((q) => (
-                      <button
-                        key={q}
-                        onClick={() => sendMessage(q)}
-                        className="text-[11px] px-3 py-1.5 rounded-full bg-muted border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
-                      >
-                        {q}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {messages.map((msg, i) => (
                 <div
                   key={i}
@@ -271,7 +247,7 @@ const Chatbot = () => {
                 >
                   {msg.role === "assistant" && (
                     <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Bot size={14} className="text-primary" />
+                     <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div
@@ -300,7 +276,7 @@ const Chatbot = () => {
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
                 <div className="flex gap-2">
                   <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-                    <Bot size={14} className="text-primary" />
+                    <img src={aiAvatar} alt="AI Assistant" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-muted/80 rounded-2xl rounded-bl-md px-4 py-3">
                     <div className="flex gap-1.5">
