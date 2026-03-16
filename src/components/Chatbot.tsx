@@ -434,7 +434,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed z-50 overflow-hidden flex flex-col bottom-0 right-0 w-full h-[100dvh] sm:bottom-6 sm:right-6 sm:w-[350px] sm:max-w-[calc(100vw-2rem)] sm:h-[480px] sm:max-h-[calc(100vh-4rem)] sm:rounded-2xl"
+            className="fixed bottom-6 right-6 z-50 w-[350px] max-w-[calc(100vw-2rem)] h-[480px] max-h-[calc(100vh-4rem)] rounded-2xl overflow-hidden flex flex-col"
             style={{
               background: t.windowBg,
               backdropFilter: "blur(24px)",
@@ -597,7 +597,7 @@ const Chatbot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="ask about Arth..."
                 disabled={isLoading}
-                className="flex-1 bg-transparent text-[16px] sm:text-sm focus:outline-none disabled:opacity-40"
+                className="flex-1 bg-transparent text-sm focus:outline-none disabled:opacity-40"
                 style={{
                   color: t.inputText,
                   caretColor: t.inputCaret,
