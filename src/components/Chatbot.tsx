@@ -597,7 +597,7 @@ const Chatbot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="ask about Arth..."
                 disabled={isLoading}
-                className="flex-1 bg-transparent text-sm focus:outline-none disabled:opacity-40"
+                className="flex-1 bg-transparent text-[16px] sm:text-sm focus:outline-none disabled:opacity-40"
                 style={{
                   color: t.inputText,
                   caretColor: t.inputCaret,
