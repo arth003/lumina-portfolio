@@ -434,7 +434,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 w-[350px] max-w-[calc(100vw-2rem)] h-[480px] max-h-[calc(100vh-4rem)] rounded-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-4 right-4 z-50 w-[320px] max-w-[calc(100vw-2rem)] h-[420px] max-h-[calc(100vh-6rem)] rounded-2xl overflow-hidden flex flex-col sm:bottom-6 sm:right-6 sm:w-[350px] sm:h-[480px] sm:max-h-[calc(100vh-4rem)]"
             style={{
               background: t.windowBg,
               backdropFilter: "blur(24px)",
